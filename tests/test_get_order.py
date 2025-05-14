@@ -1,6 +1,7 @@
 import allure
 import requests
 
+import error_text
 import urls
 
 class TestGetOrder:
@@ -18,7 +19,7 @@ class TestGetOrder:
     def test_get_orders_authenticated_user_unauthorized(self):
         response = requests.get(urls.GET_ORDER_URL)
         assert response.status_code == 401
-        assert response.json() == {'success': False, 'message': 'You should be authorised'}
+        assert response.json() == {'success': False, 'message': error_text.ERR_WITHOUT_AUTH}
 
 
 

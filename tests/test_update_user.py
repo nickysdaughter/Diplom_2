@@ -1,6 +1,7 @@
 import allure
 import requests
 
+import error_text
 import urls
 from data import TestUserUpdate
 
@@ -23,5 +24,5 @@ class TestUpdateUser:
         }
         response = requests.patch(urls.USER_GET_OR_UPDATE_URL, data=new_data)
         assert response.status_code == 401 and response.json() == {'success': False,
-                                                                   'message': 'You should be authorised'}
+                                                                   'message': error_text.ERR_WITHOUT_AUTH}
 

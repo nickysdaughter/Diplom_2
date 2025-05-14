@@ -1,6 +1,7 @@
 import allure
 import requests
 
+import error_text
 import helpers
 import urls
 from data import UserTestData
@@ -26,7 +27,7 @@ class TestUserLogin:
         }
         response = requests.post(urls.AUTH_URL, data=payload)
         assert response.status_code == 401 and response.json() == {"success": False,
-                                                                   "message": "email or password are incorrect"}
+                                                                   "message": error_text.ERR_EMAIL_OR_PASS_INCORRECT}
 
     @allure.title('Проверка логина с неверным паролем')
     def test_auth_with_wrong_passwd_expected_error(self):
@@ -36,6 +37,6 @@ class TestUserLogin:
         }
         response = requests.post(urls.AUTH_URL, data=payload)
         assert response.status_code == 401 and response.json() == {"success": False,
-                                                                   "message": "email or password are incorrect"}
+                                                                   "message": error_text.ERR_EMAIL_OR_PASS_INCORRECT}
 
 

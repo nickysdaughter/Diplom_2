@@ -2,6 +2,7 @@ import allure
 import pytest
 import requests
 
+import error_text
 import urls
 from helpers import *
 import data
@@ -50,5 +51,5 @@ class TestRegistration:
     def test_registration_one_required_field_is_empty_failed_submit(self, credentials):
         response = requests.post(urls.REGISTER_URL, data=credentials)
         assert (response.status_code == 403 and response.json() ==
-                {'success': False, 'message': 'Email, password and name are required fields'})
+                {'success': False, 'message': error_text.ERR_REQUIRED_FIELDS})
 
