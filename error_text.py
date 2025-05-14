@@ -1,0 +1,5 @@
+CREATE_ORDER_ERR_WITHOUT_INGREDIENT = 'Ingredient ids must be provided'
+CREATE_ORDER_ERR_INVALID_HASH = 'One or more ids provided are incorrect'
+ERR_WITHOUT_AUTH = 'You should be authorised'
+ERR_EMAIL_OR_PASS_INCORRECT = 'email or password are incorrect'
+ERR_REQUIRED_FIELDS = 'Email, password and name are required fields'
